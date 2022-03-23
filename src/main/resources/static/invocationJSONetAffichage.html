@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      Nombre de places de mon canapé :
+      <span id="nombreDePlaces">pas encore chargé</span>
+    </div>
+
+    <button id="monBouton">CLIQUE MOI STP</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#monBouton").click(() => {
+        $.get("http://localhost:8080/API/testCanape", (retour) => {
+          //console.log(retour);
+          //console.log(retour.couleur);
+          //console.log(retour.nombrePlaces);
+
+          $("#nombreDePlaces").text(retour.nombrePlaces);
+        });
+      });
+    </script>
+  </body>
+</html>
